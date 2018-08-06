@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hfut.hello.UserMapper">
+<resultMap type="User" id="usermap">
+<id column="id" property="id" />
+		<result column="username" property="username" />
+		<result column="password" property="password" />
+		<result column="age" property="age" />
+		<result column="address" property="address"/>
+</resultMap>
+	<insert id="insert" parameterType="User" >
+		insert into user(username,password,age,address)
+		values(#{username},#{password},#{age},#{address})
+	</insert>
+	<delete id="delete" parameterType="User">
+	   delete from user where id=#{id}
+	</delete>
+	<update id="update" parameterType="User">
+	   update user
+	   <set>
+	   <if test="username!=null">username=#{username} ,</if>
+	   <if test="password!=null">password=#{password} ,</if>
+	   <if test="age!=null">age=#{age} ,</if>
+	   <if test="address!=null">age=#{address} ,</if>
+	   </set>
+	   where id=#{id}
+	</update>
+	<select id="select" parameterType="User" resultType="User">
+	select * from user
+	<where>
+	<if test="id!=null">id = #{id}</if>
+	<if test="username!=null">and username = #{username} </if>
+	<if test="password!=null">and password = #{password}</if>
+	 <if test="age!=null">and age = #{age}</if>
+	   <if test="address!=null">and age=#{address}</if>
+	</where>
+	</select>
+</mapper>
