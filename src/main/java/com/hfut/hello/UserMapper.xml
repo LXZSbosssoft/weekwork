@@ -21,9 +21,9 @@
 	   <if test="username!=null">username=#{username} ,</if>
 	   <if test="password!=null">password=#{password} ,</if>
 	   <if test="age!=null">age=#{age} ,</if>
-	   <if test="address!=null">age=#{address} ,</if>
+	   <if test="address!=null">address=#{address}</if>
 	   </set>
-	   where id=#{id}
+	   where id = #{id}
 	</update>
 	<select id="select" parameterType="User" resultType="User">
 	select * from user
