@@ -2,16 +2,14 @@ package cn.test.dao;
 
 import cn.test.entity.Myuser;
 
+import java.util.List;
+
 public interface MyuserMapper {
-    int deleteByPrimaryKey(Integer id);
 
     int insert(Myuser record);
 
-    int insertSelective(Myuser record);
+    Myuser selectByUsername(String username);
 
-    Myuser selectByPrimaryKey(Integer id);
+    List<Myuser> getAllUser();
 
-    int updateByPrimaryKeySelective(Myuser record);
-
-    int updateByPrimaryKey(Myuser record);
 }
