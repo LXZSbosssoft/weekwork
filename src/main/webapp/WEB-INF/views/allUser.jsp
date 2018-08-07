@@ -10,9 +10,13 @@
 <html>
 <head>
     <title>Title</title>
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" />
+    <script src="/js/jquery-1.11.3.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <table>
+    <table class="table table-hover">
         <tr>
             <th>ID</th>
             <th>用户名</th>

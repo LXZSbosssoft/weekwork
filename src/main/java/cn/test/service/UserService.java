@@ -9,6 +9,6 @@ import java.util.List;
 public interface UserService {
     //检验用户登录
     Myuser checkLogin(String username, String password);
-    void Regist(Myuser user);
+    int regist(Myuser user);
     List<Myuser> allUser();
 }

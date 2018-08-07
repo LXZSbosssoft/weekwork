@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 
@@ -39,9 +41,19 @@ public class MyuserMapperTest {
         assert (result == 1);
     }
 
+    @Test
+    public  void findByUsername()throws Exception{
+        Myuser user = myuserMapper.findByUsername("zhangsan");
+        if(user != null) {
+            System.out.println(user.getPassword()+" "+ user.getSex()+" "+ user.getId()+" "+user.getAddress());
+        }
+    }
 
-
-
-
-
+    @Test
+    public  void allUser()throws Exception{
+        List<Myuser> list = myuserMapper.findAllUser();
+        for (Myuser user:list) {
+            System.out.println(user.getUsername()+" "+user.getPassword()+" "+ user.getSex()+" "+ user.getId()+" "+user.getAddress());
+        }
+    }
 }

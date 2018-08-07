@@ -21,14 +21,18 @@ public class UserController {
     private UserService userServivce;
 
     //正常访问login页面
-    @RequestMapping("/login")
+    @RequestMapping("/registerPage")
     public String login(){
-        return "login";
+        return "register";
     }
 
     @RequestMapping("/register")
-    public String register(){
-        return "register";
+    public String register(Myuser myuser){
+        int result = userServivce.regist(myuser);
+        if(result == 1)
+            return "success";
+        else
+            return "fail";
     }
 
     //表单提交过来的路径

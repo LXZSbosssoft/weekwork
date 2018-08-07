@@ -28,8 +28,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void Regist(Myuser user) {
-
+    public int regist(Myuser user) {
+        return myuserMapper.insert(user);
     }
 
     @Override
